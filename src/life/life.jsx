@@ -1,11 +1,8 @@
-import { Link } from 'react-router-dom';
 
-export default function Life() {
+export default function Life({ isDark, setIsDark }) {
     return (
-        <div>
-            <p>
-                wip
-            </p>
+        <div className="flex justify-center items-center min-h-screen">
+            wip
         </div>
     );
 }

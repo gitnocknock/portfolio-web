@@ -22,7 +22,8 @@ export default function FirstPost({ isDark, setIsDark }) {
                 </p>
 
                 <div className="text-[1.05rem] leading-relaxed space-y-4" style={{ fontFamily: "'Times New Roman', serif" }}>
-                    <p>heeellloooo.</p>
+                    <p className='italic'>heeelllooooo.</p>
+
                 </div>
             </div>
 
