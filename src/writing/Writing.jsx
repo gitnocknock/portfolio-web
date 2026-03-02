@@ -24,9 +24,9 @@ export default function Writing({ isDark, setIsDark }) {
                         to="/writing/first-post"
                         className="underline underline-offset-4 decoration-1 font-family-playfair text-[1.4rem] transition-opacity duration-200 hover:opacity-50"
                     >
-                        first ever blog, yay!!
+                        first post
                     </Link>
-                    <p className="text-[0.95rem] m-0 mb-1" style={{ fontFamily: "'Times New Roman', serif" }}>(2026-2-28)</p>
+                    <p className="text-[0.95rem] m-0 mb-1" style={{ fontFamily: "'Times New Roman', serif" }}>(2026-3-1)</p>
                 </li>
             </ul>
 

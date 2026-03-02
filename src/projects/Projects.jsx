@@ -7,36 +7,32 @@ export default function Projects({ isDark, setIsDark }) {
             title: "buzzbuzz",
             tech: "react, typescript, python, django, postgresql",
             bullets: [
-                "developed a react and typescript platform for 500+ clubs to centralize campus organization searches.",
-                "optimized django rest api with postgresql indexing to enable crud and filtering, cutting latency by 60%.",
-                "engineered a selenium and openai pipeline to automate 100% of data collection and processing."
+                "made a campus wide map that shows clubs/events that are going on.",
+                "used selenium to scrape the events and clubs and used position stack to plot them onna map."
             ]
         },
         {
             title: "airl chess agent",
             tech: "python",
             bullets: [
-                "built 4,672-action space openai gym wrapper to facilitate reinforcement learning without manual engineering.",
-                "engineered 3-layer cnns and behavioral cloning to recover reward functions with 95% expert alignment.",
-                "benchmarked agent against stockfish to achieve expert-level policy mimicking with 92% move accuracy."
+                "adversarial inverse reinforcement learning that uses your chess games to play games like the user.",
+                "used cnn's and behavioral pre-training to ensure that the agent follows similar techniques to users games."
             ]
         },
         {
             title: "removeo",
             tech: "react, flask, typescript, python",
             bullets: [
-                "this is a placeholder! this is a placeholder! this is a placeholder! this is a placeholder! this is a placeholder!",
-                "this is a placeholder! this is a placeholder! this is a placeholder! this is a placeholder! this is a placeholder!",
-                "this is a placeholder! this is a placeholder! this is a placeholder! this is a placeholder! this is a placeholder!"
+                "chrome extension where it uses cnn's to remove ai generated images from pintrest feed.",
+                "still very much a wip in progress tho."
             ]
         },
         {
             title: "flight guard ai",
             tech: "react, typescript, python, next.js, convex",
             bullets: [
-                "deployed a convex-based flight monitor to sync real-time state for 1,000+ users with sub-50ms latency.",
-                "engineered an autonomous fetch.ai agent to scrape flight data and detect cancellations with 95% accuracy.",
-                "integrated aerodatabox api to automate optimal rebooking, reducing travel disruption recovery time by 40%."
+                "used fetch.ai to find flights and use AeroDataBox to find cheap flights.",
+                "used convex for real time syncing."
             ]
         }
     ];
@@ -64,9 +60,9 @@ export default function Projects({ isDark, setIsDark }) {
                             <h2 className="text-[1.0rem] md:text-[1.2rem] m-0 leading-tight font-normal">
                                 {proj.title}
                             </h2>
-                            <a href="#" className="text-[0.9rem] underline decoration-normal text-inherit hover:opacity-50 transition-opacity">
+                            {/* <a href="#" className="text-[0.9rem] underline decoration-normal text-inherit hover:opacity-50 transition-opacity">
                                 (github)
-                            </a>
+                            </a> */}
                         </div>
 
                         <h3 className="text-[0.9rem] md:text-[1rem] italic m-0 mb-2 font-normal">
