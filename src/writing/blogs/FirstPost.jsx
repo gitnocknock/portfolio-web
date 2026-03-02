@@ -59,7 +59,9 @@ export default function FirstPost({ isDark, setIsDark }) {
 
                         This blog is part of that for me.
                         I don't totally know what I'm doing here yet,
-                        but I know what I'm curious about: coding, math, different cultures, and ethics. Not really much of an expert in any of those. Just waayyyy to curious about them.
+                        but I know what I'm curious about: coding, math, different cultures, and ethics. Not really much of an expert in any of those. 
+                        Just waayyyy to curious about them.
+                        So I figured I'd yap about them here. 
                         <br /> <br />
 
                         So yeah, first post done. Not really sure what I was totatlly going for when I started writing this lol. <br />
