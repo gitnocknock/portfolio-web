@@ -3,25 +3,22 @@ import richiPhoto from '../assets/richiInDaBox.JPG';
 import img0996 from '../assets/IMG_0996.jpg';
 import sunKissed from '../assets/richiMogging.webp';
 
-const W = '20rem';
-const H = '11rem';
-
 function PhotoCard({ src, alt, caption, rotate = false }) {
     return (
-        <div className="flex flex-col items-center">
-            <div className="overflow-hidden" style={{ width: W, height: H }}>
+        <div className="flex flex-col items-center w-full">
+            <div className="relative w-full aspect-[20/11] overflow-hidden rounded-sm bg-black/5 dark:bg-white/5">
                 {rotate ? (
                     <img
                         src={src}
                         alt={alt}
                         style={{
                             transform: 'rotate(-90deg)',
-                            width: H,
-                            height: W,
+                            width: '55%',
+                            height: '181.82%',
                             transformOrigin: 'center center',
-                            position: 'relative',
-                            left: '4.5rem',
-                            top: '-4.5rem',
+                            position: 'absolute',
+                            left: '22.5%',
+                            top: '-40.91%',
                         }}
                         className="object-cover"
                     />
@@ -29,14 +26,13 @@ function PhotoCard({ src, alt, caption, rotate = false }) {
                     <img
                         src={src}
                         alt={alt}
-                        style={{ width: '100%', height: '100%' }}
-                        className="object-cover"
+                        className="w-full h-full object-cover"
                     />
                 )}
             </div>
             {caption && (
-                <div className="mt-3 flex justify-center w-full">
-                    <p style={{ fontFamily: "'Caveat', cursive" }} className="text-2xl text-center">
+                <div className="mt-2 md:mt-3 flex justify-center w-full">
+                    <p style={{ fontFamily: "'Caveat', cursive" }} className="text-xl md:text-2xl text-center leading-tight">
                         {caption}
                     </p>
                 </div>
@@ -47,7 +43,7 @@ function PhotoCard({ src, alt, caption, rotate = false }) {
 
 export default function Life({ isDark, setIsDark }) {
     return (
-        <div className="relative min-h-screen w-full p-8 md:p-12 overflow-y-auto">
+        <div className="relative min-h-screen w-full p-4 md:p-12 overflow-y-auto">
             <style>{`
                 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
                 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
@@ -55,7 +51,7 @@ export default function Life({ isDark, setIsDark }) {
 
             <Link
                 to="/"
-                className="absolute top-8 left-8 underline underline-offset-4 decoration-1 text-[1.1rem] transition-opacity duration-200 hover:opacity-50 fade-in"
+                className="absolute top-6 left-6 md:top-8 md:left-8 underline underline-offset-4 decoration-1 text-[1rem] md:text-[1.1rem] transition-opacity duration-200 hover:opacity-50 fade-in"
                 style={{ animationDelay: '0.1s' }}
             >
                 &larr; back
@@ -103,14 +99,14 @@ export default function Life({ isDark, setIsDark }) {
                 </div>
             </button>
 
-            <div className="absolute top-15 left-8 md:top-24 md:left-8 z-10 fade-in" style={{ animationDelay: '0.2s' }}>
-                <h1 style={{ fontFamily: "'Playfair Display', serif" }} className="text-4xl font-normal tracking-[-0.01em]">
+            <div className="absolute top-12 left-6 md:top-24 md:left-8 z-10 fade-in" style={{ animationDelay: '0.2s' }}>
+                <h1 style={{ fontFamily: "'Playfair Display', serif" }} className="text-3xl md:text-4xl font-normal tracking-[-0.01em]">
                     miscellaneous.
                 </h1>
             </div>
 
-            <div className="pt-30 md:pt-35">
-                <div className="grid grid-cols-3 gap-x-10 gap-y-14 w-fit">
+            <div className="pt-24 md:pt-35">
+                <div className="grid grid-cols-3 gap-3 md:gap-10 w-full max-w-6xl mx-auto px-2 md:px-0">
                     <div className="fade-in" style={{ animationDelay: '0.4s' }}>
                         <PhotoCard src={richiPhoto} alt="Richi the cat" caption="my goat, richi" rotate />
                     </div>
@@ -125,3 +121,4 @@ export default function Life({ isDark, setIsDark }) {
         </div>
     );
 }
+
