@@ -4,6 +4,7 @@ import './index.css';
 import Writing from './writing/Writing';
 import Home from './Home';
 import FirstPost from './writing/blogs/FirstPost';
+import SecondPost from './writing/blogs/SecondPost';
 import Life from './life/life';
 import Projects from './projects/Projects';
 
@@ -33,6 +34,7 @@ function App() {
         <Route path="/" element={<Home isDark={isDark} setIsDark={setIsDark} />} />
         <Route path="/writing" element={<Writing isDark={isDark} setIsDark={setIsDark} />} />
         <Route path="/writing/first-post" element={<FirstPost isDark={isDark} setIsDark={setIsDark} />} />
+        <Route path="/writing/second-post" element={<SecondPost isDark={isDark} setIsDark={setIsDark} />} />
         <Route path="/life" element={<Life isDark={isDark} setIsDark={setIsDark} />} />
         <Route path="/projects" element={<Projects isDark={isDark} setIsDark={setIsDark} />} />
       </Routes>

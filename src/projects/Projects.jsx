@@ -20,11 +20,10 @@ export default function Projects({ isDark, setIsDark }) {
             ]
         },
         {
-            title: "removeo",
-            tech: "react, flask, typescript, python",
+            title: "loom",
+            tech: "react, spring boot, aws, docker, tailwind",
             bullets: [
-                "chrome extension where it uses cnn's to remove ai generated images from pintrest feed.",
-                "still very much a wip in progress tho."
+                "cool new project i am working on more to come soon :)"
             ]
         },
         {

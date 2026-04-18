@@ -27,6 +27,14 @@ export default function Writing({ isDark, setIsDark }) {
                         first post
                     </Link>
                     <p className="text-[0.95rem] m-0 mb-1" style={{ fontFamily: "'Times New Roman', serif" }}>(2026-3-1)</p>
+                    <br></br> 
+                    <Link
+                        to="/writing/second-post"
+                        className="underline underline-offset-4 decoration-1 font-family-playfair text-[1.4rem] transition-opacity duration-200 hover:opacity-50"
+                    >
+                        airl and life
+                    </Link>
+                    <p className="text-[0.95rem] m-0 mb-1" style={{ fontFamily: "'Times New Roman', serif" }}>(2026-3-26)</p>
                 </li>
             </ul>
 
