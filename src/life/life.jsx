@@ -2,41 +2,40 @@ import { Link } from 'react-router-dom';
 import richiPhoto from '../assets/richiInDaBox.JPG';
 import img0996 from '../assets/IMG_0996.jpg';
 import sunKissed from '../assets/richiMogging.webp';
+import pond from '../assets/pond.webp';
 
-function PhotoCard({ src, alt, caption, rotate = false }) {
+function PhotoCard({ src, alt, caption, rotate = false, tilt = 0 }) {
     return (
-        <div className="flex flex-col items-center w-full">
-            <div className="relative w-full aspect-[20/11] overflow-hidden rounded-sm bg-black/5 dark:bg-white/5">
-                {rotate ? (
+        <div
+            className="flex flex-col items-center w-full"
+            style={{ transform: `rotate(${tilt}deg)` }}
+        >
+            <div className="bg-[#f5f0e8] p-2 pb-10 shadow-md w-full" style={{ boxShadow: '3px 4px 12px rgba(0,0,0,0.35)' }}>
+                <div className="relative w-full aspect-4/3 overflow-hidden bg-black/10">
                     <img
                         src={src}
                         alt={alt}
-                        style={{
-                            transform: 'rotate(-90deg)',
-                            width: '55%',
-                            height: '181.82%',
-                            transformOrigin: 'center center',
+                        style={rotate ? {
                             position: 'absolute',
-                            left: '22.5%',
-                            top: '-40.91%',
-                        }}
-                        className="object-cover"
+                            top: '50%',
+                            left: '50%',
+                            width: '133%',
+                            height: '133%',
+                            transform: 'translate(-50%, -50%) rotate(-90deg)',
+                            objectFit: 'cover',
+                        } : {}}
+                        className={rotate ? '' : 'w-full h-full object-cover'}
                     />
-                ) : (
-                    <img
-                        src={src}
-                        alt={alt}
-                        className="w-full h-full object-cover"
-                    />
-                )}
-            </div>
-            {caption && (
-                <div className="mt-2 md:mt-3 flex justify-center w-full">
-                    <p style={{ fontFamily: "'Caveat', cursive" }} className="text-xl md:text-2xl text-center leading-tight">
+                </div>
+                {caption && (
+                    <p
+                        style={{ fontFamily: "'AnishHand', cursive", color: '#1a1a1a' }}
+                        className="text-lg md:text-lg text-center leading-tight mt-2 px-1 font-bold"
+                    >
                         {caption}
                     </p>
-                </div>
-            )}
+                )}
+            </div>
         </div>
     );
 }
@@ -45,7 +44,11 @@ export default function Life({ isDark, setIsDark }) {
     return (
         <div className="relative min-h-screen w-full p-4 md:p-12 overflow-y-auto">
             <style>{`
-                @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+                @font-face {
+                    font-family: 'AnishHand';
+                    src: url('/AnishHand.ttf') format('truetype');
+                    font-display: block;
+                }
                 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
             `}</style>
 
@@ -106,15 +109,18 @@ export default function Life({ isDark, setIsDark }) {
             </div>
 
             <div className="pt-24 md:pt-35">
-                <div className="grid grid-cols-3 gap-3 md:gap-10 w-full max-w-6xl mx-auto px-2 md:px-0">
+                <div className="grid grid-cols-4 gap-3 md:gap-8 w-full max-w-6xl mx-auto px-2 md:px-0">
                     <div className="fade-in" style={{ animationDelay: '0.4s' }}>
-                        <PhotoCard src={richiPhoto} alt="Richi the cat" caption="my goat, richi" rotate />
+                        <PhotoCard src={richiPhoto} alt="Richi the cat" caption="richi" rotate tilt={-2} />
                     </div>
                     <div className="fade-in" style={{ animationDelay: '0.6s' }}>
-                        <PhotoCard src={img0996} alt="photo" caption="ipad kid ahh cat" />
+                        <PhotoCard src={img0996} alt="photo" caption="ipad kid ahh cat" tilt={1.5} />
                     </div>
                     <div className="fade-in" style={{ animationDelay: '0.8s' }}>
-                        <PhotoCard src={sunKissed} alt="photo" caption="what is bro looking at??" />
+                        <PhotoCard src={sunKissed} alt="photo" caption="what is bro looking at??" tilt={-1} />
+                    </div>
+                    <div className="fade-in" style={{ animationDelay: '1.0s' }}>
+                        <PhotoCard src={pond} alt="pond" caption="cool little pond" tilt={2} />
                     </div>
                 </div>
             </div>
