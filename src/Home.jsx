@@ -50,8 +50,8 @@ export default function Home({ isDark, setIsDark }) {
 
             <button
                 onClick={() => setIsDark(!isDark)}
-                className="absolute top-8 right-8 fade-in flex items-center justify-center w-10 h-10 cursor-pointer overflow-hidden rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors duration-200"
-                style={{ animationDelay: '0.1s' }}
+                className="absolute top-8 right-8 flex items-center justify-center w-10 h-10 cursor-pointer overflow-hidden rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors duration-200"
+                style={{ opacity: contentVisible ? 1 : 0, pointerEvents: contentVisible ? 'auto' : 'none', transition: 'opacity 0.6s ease' }}
                 aria-label="Toggle Theme"
             >
                 <div className="relative w-6 h-6 flex items-center justify-center">
