@@ -1,7 +1,15 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ThemeToggle from '../ThemeToggle';
 
+let projectsVisited = false;
+
 export default function Projects({ isDark, setIsDark }) {
+    const isFirstVisit = !projectsVisited;
+
+    useEffect(() => {
+        projectsVisited = true;
+    }, []);
     const projects = [
         {
             title: "buzzbuzz",
@@ -37,9 +45,9 @@ export default function Projects({ isDark, setIsDark }) {
     ];
 
     return (
-        <div className="flex flex-col items-center min-h-screen w-full fade-in pb-24 px-8" style={{ animationDelay: '0.2s' }}>
+        <div className={`flex flex-col items-center min-h-screen w-full ${isFirstVisit ? 'fade-in' : ''} pb-24 px-8`} style={isFirstVisit ? { animationDelay: '0.2s' } : {}}>
 
-            <ThemeToggle isDark={isDark} setIsDark={setIsDark} className="fixed top-2 right-2 z-10" />
+            <ThemeToggle isDark={isDark} setIsDark={setIsDark} className="fixed top-2 right-2 z-10" noAnimate={!isFirstVisit} />
 
             <h1 className="absolute top-1 left-0 text-[2rem] font-normal m-0 tracking-[-0.01em] w-full text-center font-family-playfair pt-4">
                 my projects

@@ -1,8 +1,11 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import richiPhoto from '../assets/richiInDaBox.JPG';
 import img0996 from '../assets/IMG_0996.jpg';
 import sunKissed from '../assets/richiMogging.webp';
 import pond from '../assets/pond.webp';
+
+let lifeVisited = false;
 
 function PhotoCard({ src, alt, caption, rotate = false, tilt = 0 }) {
     return (
@@ -41,6 +44,12 @@ function PhotoCard({ src, alt, caption, rotate = false, tilt = 0 }) {
 }
 
 export default function Life({ isDark, setIsDark }) {
+    const isFirstVisit = !lifeVisited;
+
+    useEffect(() => {
+        lifeVisited = true;
+    }, []);
+
     return (
         <div className="relative min-h-screen w-full p-4 md:p-12 overflow-y-auto">
             <style>{`
@@ -54,7 +63,7 @@ export default function Life({ isDark, setIsDark }) {
 
             <Link
                 to="/"
-                className="absolute top-6 left-6 md:top-8 md:left-8 underline underline-offset-4 decoration-1 text-[1rem] md:text-[1.1rem] transition-opacity duration-200 hover:opacity-50 fade-in"
+            className={`absolute top-6 left-6 md:top-8 md:left-8 underline underline-offset-4 decoration-1 text-[1rem] md:text-[1.1rem] transition-opacity duration-200 hover:opacity-50${isFirstVisit ? ' fade-in' : ''}`}
                 style={{ animationDelay: '0.1s' }}
             >
                 &larr; back
@@ -62,7 +71,7 @@ export default function Life({ isDark, setIsDark }) {
 
             <button
                 onClick={() => setIsDark(!isDark)}
-                className="absolute top-1 right-3 fade-in flex items-center justify-center w-11 h-11 cursor-pointer overflow-hidden rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors duration-200"
+                className={`absolute top-1 right-3${isFirstVisit ? ' fade-in' : ''} flex items-center justify-center w-11 h-11 cursor-pointer overflow-hidden rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors duration-200`}
                 style={{ animationDelay: '0.1s' }}
                 aria-label="Toggle Theme"
             >
@@ -102,7 +111,7 @@ export default function Life({ isDark, setIsDark }) {
                 </div>
             </button>
 
-            <div className="absolute top-12 left-6 md:top-24 md:left-8 z-10 fade-in" style={{ animationDelay: '0.2s' }}>
+            <div className={`absolute top-12 left-6 md:top-24 md:left-8 z-10${isFirstVisit ? ' fade-in' : ''}`} style={isFirstVisit ? { animationDelay: '0.2s' } : {}}>
                 <h1 style={{ fontFamily: "'Playfair Display', serif" }} className="text-3xl md:text-4xl font-normal tracking-[-0.01em]">
                     miscellaneous.
                 </h1>
@@ -110,16 +119,16 @@ export default function Life({ isDark, setIsDark }) {
 
             <div className="pt-24 md:pt-35">
                 <div className="grid grid-cols-4 gap-3 md:gap-8 w-full max-w-6xl mx-auto px-2 md:px-0">
-                    <div className="fade-in" style={{ animationDelay: '0.4s' }}>
+                    <div className={isFirstVisit ? 'fade-in' : ''} style={isFirstVisit ? { animationDelay: '0.4s' } : {}}>
                         <PhotoCard src={richiPhoto} alt="Richi the cat" caption="richi" rotate tilt={-2} />
                     </div>
-                    <div className="fade-in" style={{ animationDelay: '0.6s' }}>
+                    <div className={isFirstVisit ? 'fade-in' : ''} style={isFirstVisit ? { animationDelay: '0.6s' } : {}}>
                         <PhotoCard src={img0996} alt="photo" caption="ipad kid ahh cat" tilt={1.5} />
                     </div>
-                    <div className="fade-in" style={{ animationDelay: '0.8s' }}>
+                    <div className={isFirstVisit ? 'fade-in' : ''} style={isFirstVisit ? { animationDelay: '0.8s' } : {}}>
                         <PhotoCard src={sunKissed} alt="photo" caption="what is bro looking at??" tilt={-1} />
                     </div>
-                    <div className="fade-in" style={{ animationDelay: '1.0s' }}>
+                    <div className={isFirstVisit ? 'fade-in' : ''} style={isFirstVisit ? { animationDelay: '1.0s' } : {}}>
                         <PhotoCard src={pond} alt="pond" caption="cool little pond" tilt={2} />
                     </div>
                 </div>
