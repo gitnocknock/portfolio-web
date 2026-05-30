@@ -11,18 +11,12 @@ let introHasPlayed = false;
 
 export default function Home({ isDark, setIsDark }) {
     const [settling, setSettling] = useState(false);
-    const [showIntro, setShowIntro] = useState(!introHasPlayed);
+    const [showIntro, setShowIntro] = useState(true);
     const [contentVisible, setContentVisible] = useState(false);
     const [settleTransform, setSettleTransform] = useState(`scale(${SCALE})`);
     const inlineRef = useRef(null);
 
     useEffect(() => {
-        if (introHasPlayed) {
-            // Back-navigation: fade in smoothly without replaying intro
-            const t = setTimeout(() => setContentVisible(true), 50);
-            return () => clearTimeout(t);
-        }
-
         const measureTimer = setTimeout(() => {
             if (inlineRef.current) {
                 const rect = inlineRef.current.getBoundingClientRect();
@@ -41,7 +35,14 @@ export default function Home({ isDark, setIsDark }) {
             setShowIntro(false);
         }, 6000);
 
-        return () => { clearTimeout(measureTimer); clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
+        return () => {
+            clearTimeout(measureTimer);
+            clearTimeout(t1);
+            clearTimeout(t2);
+            clearTimeout(t3);
+            // Reset so the animation replays next time the user returns to Home
+            introHasPlayed = false;
+        };
     }, []);
 
     return (
