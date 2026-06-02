@@ -1,15 +1,10 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ThemeToggle from '../ThemeToggle';
 
-let projectsVisited = false;
-
 export default function Projects({ isDark, setIsDark }) {
-    const isFirstVisit = !projectsVisited;
+    const [isFirstVisit] = useState(true);
 
-    useEffect(() => {
-        projectsVisited = true;
-    }, []);
     const projects = [
         {
             title: "buzzbuzz",
@@ -45,31 +40,35 @@ export default function Projects({ isDark, setIsDark }) {
     ];
 
     return (
-        <div className={`flex flex-col items-center min-h-screen w-full ${isFirstVisit ? 'fade-in' : ''} pb-24 px-8`} style={isFirstVisit ? { animationDelay: '0.2s' } : {}}>
+        <div className="flex flex-col items-center h-screen w-full px-8">
 
-            <ThemeToggle isDark={isDark} setIsDark={setIsDark} className="fixed top-2 right-2 z-10" noAnimate={!isFirstVisit} />
+            <ThemeToggle isDark={isDark} setIsDark={setIsDark} className="fixed top-8 right-8 z-10" noAnimate={!isFirstVisit} />
 
-            <h1 className="absolute top-1 left-0 text-[2rem] font-normal m-0 tracking-[-0.01em] w-full text-center font-family-playfair pt-4">
+            <h1
+                className={`absolute top-4 left-0 text-[2rem] font-normal m-0 tracking-[-0.01em] w-full text-center font-family-playfair${isFirstVisit ? ' fade-in' : ''}`}
+                style={isFirstVisit ? { animationDelay: '0.1s' } : {}}
+            >
                 my projects
             </h1>
 
             <Link
                 to="/"
-                className="fixed top-20 left-4 md:left-[20%] underline underline-offset-4 decoration-1 text-[1.1rem] transition-opacity duration-200 hover:opacity-50 cursor-pointer font-family-playfair"
+                className={`fixed top-20 left-4 md:left-[20%] underline underline-offset-4 decoration-1 text-[1.1rem] transition-opacity duration-200 hover:opacity-50 cursor-pointer font-family-playfair${isFirstVisit ? ' fade-in' : ''}`}
+                style={isFirstVisit ? { animationDelay: '0.2s' } : {}}
             >
                 &larr; back
             </Link>
 
-            <div className="w-full max-w-lg text-left mt-32 space-y-10" style={{ fontFamily: "'Times New Roman', Times, serif" }}>
+            <div
+                className={`w-full max-w-lg text-left mt-44 space-y-10 pb-8${isFirstVisit ? ' fade-in' : ''}`}
+                style={{ fontFamily: "'Times New Roman', Times, serif", ...(isFirstVisit ? { animationDelay: '0.3s' } : {}) }}
+            >
                 {projects.map((proj, idx) => (
                     <div key={idx}>
                         <div className="flex items-baseline flex-wrap gap-2 mb-1">
                             <h2 className="text-[1.0rem] md:text-[1.2rem] m-0 leading-tight font-normal">
                                 {proj.title}
                             </h2>
-                            {/* <a href="#" className="text-[0.9rem] underline decoration-normal text-inherit hover:opacity-50 transition-opacity">
-                                (github)
-                            </a> */}
                         </div>
 
                         <h3 className="text-[0.9rem] md:text-[1rem] italic m-0 mb-2 font-normal">

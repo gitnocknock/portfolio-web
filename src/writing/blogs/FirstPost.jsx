@@ -1,19 +1,19 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ThemeToggle from '../../ThemeToggle';
 
 let firstPostVisited = false;
 
 export default function FirstPost({ isDark, setIsDark }) {
-    const isFirstVisit = !firstPostVisited;
+    const [isFirstVisit] = useState(!firstPostVisited);
 
     useEffect(() => {
         firstPostVisited = true;
     }, []);
 
     return (
-        <div className={`flex flex-col items-center min-h-screen w-full ${isFirstVisit ? 'fade-in' : ''} pb-16 px-8`}>
-            <ThemeToggle isDark={isDark} setIsDark={setIsDark} className="fixed top-2 right-2 z-10" noAnimate={!isFirstVisit} />
+        <div className={`flex flex-col items-center h-screen w-full overflow-y-auto ${isFirstVisit ? 'fade-in' : ''} pb-16 px-8`}>
+            <ThemeToggle isDark={isDark} setIsDark={setIsDark} className="fixed top-8 right-8 z-10" noAnimate={!isFirstVisit} />
 
             <div className="w-full max-w-2xl text-left pt-16">
                 <Link

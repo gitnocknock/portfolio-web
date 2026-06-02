@@ -1,9 +1,9 @@
-export default function ThemeToggle({ isDark, setIsDark, className, noAnimate = false }) {
+export default function ThemeToggle({ isDark, setIsDark, className, noAnimate = false, style }) {
     return (
         <button
             onClick={() => setIsDark(!isDark)}
-            className={`${className ?? 'absolute top-8 right-8'}${noAnimate ? '' : ' fade-in'} flex items-center justify-center w-10 h-10 cursor-pointer overflow-hidden rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors duration-200`}
-            style={noAnimate ? undefined : { animationDelay: '0.1s' }}
+            className={`${className ?? 'fixed top-8 right-8'}${noAnimate ? '' : ' fade-in'} flex items-center justify-center w-10 h-10 cursor-pointer overflow-hidden rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors duration-200`}
+            style={style ?? (noAnimate ? undefined : { animationDelay: '0.1s' })}
             aria-label="Toggle Theme"
         >
             <div className="relative w-6 h-6 flex items-center justify-center">

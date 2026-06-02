@@ -29,7 +29,7 @@ function App() {
   }, [isDark]);
 
   return (
-    <main className="flex justify-center items-center min-h-screen p-8 text-center bg-background text-text transition-colors duration-300 relative">
+    <main className="flex justify-center items-center min-h-screen text-center bg-background text-text transition-colors duration-300 relative">
       <Routes>
         <Route path="/" element={<Home isDark={isDark} setIsDark={setIsDark} />} />
         <Route path="/writing" element={<Writing isDark={isDark} setIsDark={setIsDark} />} />
